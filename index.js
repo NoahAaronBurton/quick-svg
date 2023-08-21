@@ -1,5 +1,36 @@
 const inquirer = require('inquirer');
 
+const isValidHexcode = hexCode => {
+    // todo: add rules here
+    const hexRules = /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/; // chat GPT wrote this check for me 
+    return hexRules.test(hexCode);
+}
+
+
+const isValidKeyword = keyword => {
+    const colors = [
+        'red',
+        'green',
+        'yellow',
+        'orange',
+        'purple',
+        'pink',
+        'brown',
+        'black',
+        'white',
+        'gray',
+        'blue',
+    ]
+
+    if (colors.includes(keyword)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+    
+    
+
 const questions = [
     {
         name: 'characters',
@@ -13,6 +44,18 @@ const questions = [
                 console.log('')
                return 'Maximum length is three characters \n';
             }      
+        }
+    },
+    {
+        name: 'textColor',
+        type: 'input',
+        message: 'Enter a color keyword(`blue`,`red` etc...) or a hexadecimal code (`#ffffff`) for the text color',
+        validate: function(input) {
+            if(isValidKeyword(input) || isValidHexcode(input)) {
+                return true;
+            } else {
+                return 'Color key word not recognized, or invalid hex code. Please try again...'
+            }
         }
     },
 ]
