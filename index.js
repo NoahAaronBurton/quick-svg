@@ -58,6 +58,16 @@ const questions = [
             }
         }
     },
+    {
+        name: 'shape',
+        type: 'rawlist',
+        message: 'Select a shape',
+        choices : [
+           'Circle',
+           'Triangle',
+           'Square', 
+        ]
+    },
 ]
 
 function init() {
