@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 
 const isValidHexcode = hexCode => {
-    // todo: add rules here
     const hexRules = /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/; // chat GPT wrote this check for me 
     return hexRules.test(hexCode);
 }
@@ -68,6 +67,18 @@ const questions = [
            'Square', 
         ]
     },
+    {
+        name: 'shapeColor',
+        type: 'input',
+        message: 'Enter a color keyword(`blue`,`red` etc...) or a hexadecimal code (`#ffffff`) for the shape color',
+        validate: function(input) {
+            if(isValidKeyword(input) || isValidHexcode(input)) {
+                return true;
+            } else {
+                return 'Color key word not recognized, or invalid hex code. Please try again...'            
+            }
+        }
+    },
 ]
 
 function init() {
@@ -79,7 +90,7 @@ init();
 inquirer
     .prompt(questions)
     .then(function (data){
-        console.log('questions completed.')
+        console.log(data)
     })
     .catch((error) => { // this block taken from inquirer documentation
         if (error.isTtyError) {
