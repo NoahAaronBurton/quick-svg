@@ -5,9 +5,15 @@ const questions = [
         name: 'characters',
         type: 'input',
         message: 'Enter up to three characters',
-        // validate(input) {
-        //     if(input)        
-        // }
+        validate(input) {
+            if(input.length <=3 ) {
+               
+                return true;
+            } else {
+                console.log('')
+               return 'Maximum length is three characters \n';
+            }      
+        }
     },
 ]
 
