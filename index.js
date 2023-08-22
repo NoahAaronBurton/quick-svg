@@ -1,5 +1,7 @@
 const inquirer = require('inquirer');
 
+// todo: read the XML file
+
 const isValidHexcode = hexCode => {
     const hexRules = /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/; // chat GPT wrote this check for me 
     return hexRules.test(hexCode);
