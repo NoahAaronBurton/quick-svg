@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 
-// todo: read the XML file
 
 const isValidHexcode = hexCode => {
     const hexRules = /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/; // chat GPT wrote this check for me 
@@ -89,10 +89,23 @@ function init() {
 
 init();
 
+function writeSvg(fileName, data) {
+    fs.writeFile(fileName,data,(err) => {
+        if (err) { // w3 schools helped me with this err check
+            console.error('Error writing to file:', err);
+          } else {
+            console.log('data written to file!')
+          }
+    })
+};
+
 inquirer
     .prompt(questions)
     .then(function (data){
         console.log(data)
+        //todo: function to generate svg
+        const svg = generateSVG(data)
+        writeSvg('icon.svg', svg);
     })
     .catch((error) => { // this block taken from inquirer documentation
         if (error.isTtyError) {
@@ -101,4 +114,4 @@ inquirer
             console.log('Something went wrong... \n')
           
         }
-      });
+      });     
