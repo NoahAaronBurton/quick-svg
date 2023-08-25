@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-
+const Shape = require('./lib/shapes.js');
 
 const isValidHexcode = hexCode => {
     const hexRules = /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/; // chat GPT wrote this check for me 
@@ -103,9 +103,21 @@ inquirer
     .prompt(questions)
     .then(function (data){
         console.log(data)
-        //todo: function to generate svg
-        const svg = generateSVG(data)
-        writeSvg('icon.svg', svg);
+        //todo: call class method to generate svg?
+        const svg = '';
+
+        const characters = data.characters;
+        const textColor = data.textColor;
+        const shape = data.shape;
+        const shapeColor = data.shapeColor;
+
+        //todo: conditional statement to call correct shape sub-class
+        const shapeInstance = new Shape(characters, textColor, shapeColor);
+
+        // Call the render method
+        shapeInstance.renderInfo();
+
+        //writeSvg('icon.svg', svg);
     })
     .catch((error) => { // this block taken from inquirer documentation
         if (error.isTtyError) {
