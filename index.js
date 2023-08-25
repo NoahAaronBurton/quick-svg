@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Shape = require('./lib/shapes.js');
+const Circle = require('./lib/circle.js');
 
 const isValidHexcode = hexCode => {
     const hexRules = /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/; // chat GPT wrote this check for me 
@@ -112,12 +113,16 @@ inquirer
         const shapeColor = data.shapeColor;
 
         //todo: conditional statement to call correct shape sub-class
-        const shapeInstance = new Shape(characters, textColor, shapeColor);
+        if (data.shape === 'Circle') {
+            const circleInstance = new Circle(characters, textColor, shapeColor, shape);
+            const generatedSvG= circleInstance.renderCircleSVG();
+            console.log(generatedSvG);
+            writeSvg('icon.svg', generatedSvG);
+        }
 
-        // Call the render method
-        shapeInstance.renderInfo();
+       
 
-        //writeSvg('icon.svg', svg);
+        
     })
     .catch((error) => { // this block taken from inquirer documentation
         if (error.isTtyError) {
