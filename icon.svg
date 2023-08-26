@@ -1,7 +1,10 @@
 
         <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="150, 18 244, 182 56, 182" fill="green" />
+        <polygon points="150, 18 244, 182 56, 182" fill="red" />
 
-        <text x="150" y="150" font-size="60" text-anchor="middle" fill="purple">fec</text>
+        <text x="150" y="150" font-size="60" text-anchor="middle" fill="black">boo</text>
         </svg>
-        
+        xt-anchor="middle" fill="black">boo</text>
+
+    </svg>
+    
