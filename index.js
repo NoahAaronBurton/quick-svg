@@ -105,8 +105,6 @@ function writeSvg(fileName, data) {
 inquirer
     .prompt(questions)
     .then(function (data){
-        console.log(data)
-        //todo: call class method to generate svg?
         const svg = '';
 
         const characters = data.characters;
