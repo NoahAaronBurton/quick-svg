@@ -87,7 +87,7 @@ const questions = [
 ]
 
 function init() {
-    const welcomeText = console.log('Welcome to this app!!')
+    const welcomeText = console.log('Welcome to Quick SVG. Answer the following questions, then check icon.svg for your file!')
 }
 
 init();
@@ -105,6 +105,7 @@ function writeSvg(fileName, data) {
 inquirer
     .prompt(questions)
     .then(function (data){
+        console.log(data);
         const svg = '';
 
         const characters = data.characters;
@@ -122,7 +123,7 @@ inquirer
             const squareInstance = new Square(characters, textColor, shapeColor, shape);
             const generatedSvG = squareInstance.renderSquareSVG();
             writeSvg('icon.svg', generatedSvG);
-        } else { 
+        } if (data.shape === 'Triangle') { 
             const triangleInstance = new Triangle(characters, textColor, shapeColor, shape);
             const generatedSvG = triangleInstance.renderTriangleSVG();
             writeSvg('icon.svg', generatedSvG);    
