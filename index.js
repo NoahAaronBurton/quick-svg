@@ -3,6 +3,7 @@ const fs = require('fs');
 const Shape = require('./lib/shapes.js');
 const Circle = require('./lib/circle.js');
 const Square = require('./lib/square.js');
+const Triangle = require('./lib/triangle.js');
 
 const isValidHexcode = hexCode => {
     const hexRules = /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/; // chat GPT wrote this check for me 
@@ -123,7 +124,12 @@ inquirer
             const squareInstance = new Square(characters, textColor, shapeColor, shape);
             const generatedSvG = squareInstance.renderSquareSVG();
             writeSvg('icon.svg', generatedSvG);
-        } else { console.log('triangle')}
+        } else { 
+            const triangleInstance = new Triangle(characters, textColor, shapeColor, shape);
+            const generatedSvG = triangleInstance.renderTriangleSVG();
+            writeSvg('icon.svg', generatedSvG);    
+
+        }
 
        
 
