@@ -1,13 +1,11 @@
 
-    <svg version="1.1"
-     width="300" height="200"
-     xmlns="http://www.w3.org/2000/svg">
-
-     <rect width="100%" height="100%" fill="transparent" />
-
-     <circle cx="150" cy="100" r="80" fill="blue" />
-
-     <text x="150" y="125" font-size="60" text-anchor="middle" fill="red">fuc</text>
-
-    </svg>
+        <svg version="1.1"
+        width="300" height="200"
+        xmlns="http://www.w3.org/2000/svg">
+     
+       <rect width="100%" height="100%" fill="transparent" />
+     
+       <rect x="50" y="-50" width="200" height="200" fill="purple" />
+        <text x="50%" y="50%" font-size="70" text-anchor="middle" fill="red">a</text>
+       </svg>
     
