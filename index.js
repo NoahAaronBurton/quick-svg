@@ -106,14 +106,13 @@ inquirer
     .prompt(questions)
     .then(function (data){
         console.log(data);
-        const svg = '';
+
 
         const characters = data.characters;
         const textColor = data.textColor;
         const shape = data.shape;
         const shapeColor = data.shapeColor;
 
-        //todo: conditional statement to call correct shape sub-class
         if (data.shape === 'Circle') {
             const circleInstance = new Circle(characters, textColor, shapeColor, shape);
             const generatedSvG= circleInstance.renderCircleSVG();
