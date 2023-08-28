@@ -107,7 +107,6 @@ inquirer
     .then(function (data){
         console.log(data);
 
-
         const characters = data.characters;
         const textColor = data.textColor;
         const shape = data.shape;
