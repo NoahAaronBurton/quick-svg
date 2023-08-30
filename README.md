@@ -11,6 +11,7 @@
   - Purpose of Project:
 
     This app makes it easy to generate an SVG icon/logo from the command line.
+  - [VIDEO DEMO](https://watch.screencastify.com/v/tymUV7g1xrWtDhVOLUoZ)   
   
   ## Table of Contents
 
